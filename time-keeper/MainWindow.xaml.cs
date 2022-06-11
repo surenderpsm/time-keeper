@@ -24,5 +24,14 @@ namespace time_keeper
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(TaskName.Text != "")
+            {
+                Task task = new Task(TaskName.Text);
+
+            }
+        }
     }
 }

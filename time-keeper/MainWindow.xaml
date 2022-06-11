@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:time_keeper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="180" Width="280">
+    <Grid RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-0.115"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="New Task" HorizontalAlignment="Center" Margin="0,125,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="Button_Click"/>
+        <TextBox x:Name="TaskName" HorizontalAlignment="Center" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18" TextChanged="TextBox_TextChanged"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="100" Text="Start a new task" FontSize="14"/>
 
     </Grid>
 </Window>
