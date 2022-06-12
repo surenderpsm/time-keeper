@@ -38,7 +38,8 @@ namespace time_keeper
             Start.IsEnabled = true;
             End.IsEnabled = false;
             currentTask.EndTask(description, category);
-            message.Text = currentTask.getElapsed().TotalSeconds.ToString();
+            TimeSpan time = currentTask.getElapsed();
+            Stopwatch.Text = time.Hours.ToString() + ":" + time.Minutes.ToString() + ":" + time.Seconds.ToString();
             Database.addtoDB(currentTask);
         }
     }

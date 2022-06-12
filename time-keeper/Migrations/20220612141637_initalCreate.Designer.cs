@@ -11,8 +11,8 @@ using time_keeper;
 namespace time_keeper.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20220612054729_initialcreate")]
-    partial class initialcreate
+    [Migration("20220612141637_initalCreate")]
+    partial class initalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

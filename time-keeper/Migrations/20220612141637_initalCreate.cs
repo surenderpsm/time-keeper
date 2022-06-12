@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace time_keeper.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class initalCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

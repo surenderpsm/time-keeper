@@ -5,24 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:time_keeper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="180" Width="280">
-    <Grid RenderTransformOrigin="0.5,0.5">
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform Angle="-0.115"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Grid.RenderTransform>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="65,109,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="Start_Click"/>
-        <TextBox x:Name="TaskName" HorizontalAlignment="Center" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
-        <TextBlock x:Name="message" HorizontalAlignment="Center" Margin="0,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="100" Text="Start a new task" FontSize="14"/>
-        <Button x:Name="End" Content="End" HorizontalAlignment="Left" Margin="178,108,0,0" VerticalAlignment="Top" Width="50" Height="20" Click="End_Click"/>
-
+        Title="TimeKeeper" Height="479" Width="696">
+    <Grid Grid.ColumnSpan="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Begin a new Task" Padding="10" FontSize="18" FontWeight="UltraLight"></TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                
+                <Button x:Name="Start" Content="Start" Padding="50 0 50 0" Margin="100 0 100 0" Click="Start_Click" FontSize="14" FontWeight="UltraLight" />
+                <Button x:Name="End" Content="End" Padding="50 10 50 10" Margin="100 0 100 0" Click="End_Click" FontSize="14" FontWeight="UltraLight"/>
+            </StackPanel>
+            <TextBlock x:Name="Stopwatch" Text="00:00:00" HorizontalAlignment="Center" FontSize="25" FontWeight="UltraLight" Padding="10"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Summary" Padding="10" FontSize="18" FontWeight="UltraLight"></TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
