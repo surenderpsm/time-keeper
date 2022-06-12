@@ -20,7 +20,7 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Button Content="New Task" HorizontalAlignment="Center" Margin="0,125,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="Button_Click"/>
-        <TextBox x:Name="TaskName" HorizontalAlignment="Center" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="TaskName" HorizontalAlignment="Center" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="100" Text="Start a new task" FontSize="14"/>
 
     </Grid>

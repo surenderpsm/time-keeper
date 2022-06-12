@@ -27,11 +27,9 @@ namespace time_keeper
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(TaskName.Text != "")
-            {
-                Task task = new Task(TaskName.Text);
-
-            }
+            Task task = new Task();
+            task.EndTask("Hello", "Generic");
+           
         }
     }
 }

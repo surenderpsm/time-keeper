@@ -9,16 +9,25 @@ namespace time_keeper
 {
     internal class Task
     {
-        private string? category { get; set; }
-        private string? description { get; set; }
-        private DateTime start;
-        private DateTime end;        
-        
+        public string? Category { get; set; }
+        public string? Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public TimeSpan Elapsed { get; set; }
+
         public Task()
         {
-            start = DateTime.Now;
+            Start = DateTime.Now;
+            End = new DateTime();
         }
-        
-        
+
+        public void EndTask(string Description, string Category)
+        {
+            this.Description = Description;
+            this.Category = Category;
+            End = DateTime.Now;
+            Elapsed = End - Start;
+            Console.WriteLine(Elapsed.ToString());
+        }
     }
 }

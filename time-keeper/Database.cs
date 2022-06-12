@@ -10,11 +10,28 @@ namespace time_keeper
 {
     internal class Database : DbContext
     {
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Task>? Tasks { get; set; }
+        public string DbPath;
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlite($"Data Source=localDB.db");
+            var folder = Environment.SpecialFolder.LocalApplicationData;
+            var path = Environment.GetFolderPath(folder);
+            DbPath = System.IO.Path.Join(path, "localDB.db");
+            options.UseSqlite($"Data Source={DbPath}");
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Task>()
+                .HasKey(obj => obj.Start);
+        }
+
+        public static void addtoDB(Task task)
+        {
+            var db = new Database();
+            db.Add(task);
+            db.SaveChanges();
         }
     }
+
 }
