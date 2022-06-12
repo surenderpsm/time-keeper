@@ -19,9 +19,10 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="New Task" HorizontalAlignment="Center" Margin="0,125,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="Button_Click"/>
+        <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="65,109,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="Start_Click"/>
         <TextBox x:Name="TaskName" HorizontalAlignment="Center" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="100" Text="Start a new task" FontSize="14"/>
+        <TextBlock x:Name="message" HorizontalAlignment="Center" Margin="0,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="100" Text="Start a new task" FontSize="14"/>
+        <Button x:Name="End" Content="End" HorizontalAlignment="Left" Margin="178,108,0,0" VerticalAlignment="Top" Width="50" Height="20" Click="End_Click"/>
 
     </Grid>
 </Window>

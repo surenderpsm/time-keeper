@@ -27,7 +27,10 @@ namespace time_keeper
             this.Category = Category;
             End = DateTime.Now;
             Elapsed = End - Start;
-            Console.WriteLine(Elapsed.ToString());
+        }
+        public TimeSpan getElapsed()
+        {
+            return Elapsed;
         }
     }
 }

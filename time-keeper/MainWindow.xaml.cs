@@ -24,12 +24,22 @@ namespace time_keeper
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private Task currentTask;
+        private void Start_Click(object sender, RoutedEventArgs e)
         {
-            Task task = new Task();
-            task.EndTask("Hello", "Generic");
-           
+            currentTask = new Task();
+            Start.IsEnabled = false;
+            End.IsEnabled = true;
+        }
+
+        private void End_Click(object sender, RoutedEventArgs e)
+        {
+            string description = "Hello", category = "Fitness";
+            Start.IsEnabled = true;
+            End.IsEnabled = false;
+            currentTask.EndTask(description, category);
+            message.Text = currentTask.getElapsed().TotalSeconds.ToString();
+            Database.addtoDB(currentTask);
         }
     }
 }
