@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace time_keeper
 {
-    internal class Task
+    public class Task
     {
         public string? Category { get; set; }
         public string? Description { get; set; }
@@ -20,11 +20,13 @@ namespace time_keeper
             Start = DateTime.Now;
             End = new DateTime();
         }
-
-        public void EndTask(string Description, string Category)
+        public void setDetails(string Category, string Description)
         {
-            this.Description = Description;
             this.Category = Category;
+            this.Description = Description;
+        }
+        public void EndTask()
+        {
             End = DateTime.Now;
             Elapsed = End - Start;
         }
@@ -32,5 +34,15 @@ namespace time_keeper
         {
             return Elapsed;
         }
+        public string getTime()
+        {
+            string hrs = (Elapsed.Hours < 10) ? "0" + Elapsed.Hours.ToString() : Elapsed.Hours.ToString();
+            string mins = (Elapsed.Minutes < 10) ? "0" + Elapsed.Minutes.ToString() : Elapsed.Minutes.ToString();
+            string seconds = (Elapsed.Seconds < 10) ? "0" + Elapsed.Seconds.ToString() : Elapsed.Seconds.ToString();
+            return hrs + ":" + mins + ":" + seconds;
+        }
+
     }
+
+    
 }

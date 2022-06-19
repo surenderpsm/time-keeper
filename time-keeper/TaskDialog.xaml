@@ -1,0 +1,31 @@
+﻿<Window x:Class="time_keeper.TaskDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:time_keeper"
+        mc:Ignorable="d"
+        Title="Enter Task Details" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid Margin="10 10 10 10" MinHeight="100" MinWidth="250">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="TimeElapsed" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" FontWeight="UltraLight" Padding="10"/>
+        <TextBlock Grid.Row="1" Grid.Column="0"  Text="Description" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="UltraLight" Margin="10"/>
+        <TextBox Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="2" FontWeight="UltraLight" MinWidth="250" Margin="5"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Category" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="UltraLight" Margin="10"/>
+        <TextBox Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"  Padding="2" FontWeight="UltraLight" MinWidth="250" Margin="5"/>
+        
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0" >
+            <Button Content="Save" FontWeight="UltraLight" Margin="10 20 10 5" Padding="15 10"/>
+            <Button Grid.Column="1" Content="Cancel" FontWeight="UltraLight" Margin="10 20 5 5" Padding="10 10"/>
+        </StackPanel>
+    </Grid>
+</Window>

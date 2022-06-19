@@ -23,6 +23,7 @@ namespace time_keeper
         public MainWindow()
         {
             InitializeComponent();
+            LoadTasks();
         }
         private Task currentTask;
         private void Start_Click(object sender, RoutedEventArgs e)
@@ -34,13 +35,21 @@ namespace time_keeper
 
         private void End_Click(object sender, RoutedEventArgs e)
         {
-            string description = "Hello", category = "Fitness";
+            currentTask.EndTask();
             Start.IsEnabled = true;
             End.IsEnabled = false;
-            currentTask.EndTask(description, category);
-            TimeSpan time = currentTask.getElapsed();
-            Stopwatch.Text = time.Hours.ToString() + ":" + time.Minutes.ToString() + ":" + time.Seconds.ToString();
+            Stopwatch.Text = currentTask.getTime();
+            string description = "Hello", category = "Fitness";
+            var dialog = new TaskDialog(currentTask);
+            dialog.Owner = this;
+            dialog.ShowDialog();
             Database.addtoDB(currentTask);
+        }
+
+        private void LoadTasks()
+        {
+            LogDatagrid.ItemsSource = Database.getAllTasks();
         }
     }
 }
+

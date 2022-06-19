@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace time_keeper
 {
@@ -28,9 +29,19 @@ namespace time_keeper
 
         public static void addtoDB(Task task)
         {
-            var db = new Database();
-            db.Add(task);
-            db.SaveChanges();
+            using (var db = new Database())
+            {
+                db.Add(task);
+                db.SaveChanges();
+            }
+        }
+
+        public static List<Task> getAllTasks()
+        {
+            using(var db = new Database())
+            {
+                return db.Tasks.ToList();
+            }
         }
     }
 
