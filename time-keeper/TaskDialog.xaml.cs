@@ -19,10 +19,26 @@ namespace time_keeper
     /// </summary>
     public partial class TaskDialog : Window
     {
+        Task currentTask { get; set; }
         public TaskDialog(Task task)
         {
             InitializeComponent();
             TimeElapsed.Text = task.getTime();
+            currentTask = task;
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(DescriptionTextBox.Text != "" && CategoryTextBox.Text != "")
+            {
+                currentTask.setDetails(CategoryTextBox.Text, DescriptionTextBox.Text);
+            }
+            this.Close();            
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
