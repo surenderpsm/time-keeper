@@ -32,13 +32,24 @@ namespace time_keeper
             if(DescriptionTextBox.Text != "" && CategoryTextBox.Text != "")
             {
                 currentTask.setDetails(CategoryTextBox.Text, DescriptionTextBox.Text);
+                MessageBox.Show("The current task has been saved successfully!", "Task Saved", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+                return;
             }
-            this.Close();            
+            MessageBox.Show("One or more fields are empty. Please fill all the information", "Missing Information", MessageBoxButton.OK, MessageBoxImage.Warning);         
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            var result = MessageBox.Show("This operation will delete the current Task. Do you wish to continue?", "Delete current Task?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }         
         }
     }
 }
