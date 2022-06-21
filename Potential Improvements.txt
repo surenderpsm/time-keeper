@@ -1,0 +1,8 @@
+Adding insights for summary page, showing amount of time logged and time per category
+
+Adding Category suggestions as an autofill option or dropdown menu
+
+Use of pie charts to make application more interactive
+
+Future:
+	Suggesting category based on the words in the description - ML model - needs to do this by learning over time.

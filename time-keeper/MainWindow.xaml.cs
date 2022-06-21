@@ -57,11 +57,25 @@ namespace time_keeper
         private void LoadTasks()
         {
             LogDatagrid.ItemsSource = Database.getAllTasks();
+            
         }
 
         private void Timer(object sender, EventArgs e)
         {
             Stopwatch.Text = Utility.DisplayFormat(DateTime.Now - currentTask.Start);
+        }
+
+        private void DeleteAll_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("This operation will delete all data, and tasks in the database. Are you sure you want to continue?", "Delete all Data?", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
+            switch (result)
+            {
+                case MessageBoxResult.OK:
+
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
+            }
         }
     }
 }

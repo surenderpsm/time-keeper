@@ -16,4 +16,26 @@ namespace time_keeper
             return hrs + ":" + mins + ":" + seconds;
         }
     }
+
+    public class DisplayTask
+    {
+        public string ?Category { get; set; }
+        public string ?Description { get; set; }
+        public string Date { get; set; }
+        public string Start { get; set; }
+        public string End { get; set; }
+        public string Elapsed{ get; set; }
+
+        public DisplayTask(Task task)
+        {
+            Category = task.Category;
+            Description = task.Description;
+            Date = task.Start.ToShortDateString();
+            Start = task.Start.ToShortTimeString();
+            End = task.End.ToShortTimeString();
+            Elapsed = Utility.DisplayFormat(task.Elapsed);
+        }
+        
+    }
+
 }

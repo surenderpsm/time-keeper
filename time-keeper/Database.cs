@@ -36,12 +36,25 @@ namespace time_keeper
             }
         }
 
-        public static List<Task> getAllTasks()
+        public static List<DisplayTask> getAllTasks()
         {
             using(var db = new Database())
             {
-                return db.Tasks.ToList();
+                var result = new List<DisplayTask>();
+                foreach(Task task in db.Tasks.ToList())
+                {
+                    result.Add(new DisplayTask(task));
+                }
+                return result;
             }
+        }
+        public static bool deleteAll()
+        {
+            using(var db = new Database())
+            {
+                
+            }
+            return true;
         }
     }
 
