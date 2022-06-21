@@ -32,27 +32,35 @@
                 <Separator/>
                 <MenuItem Header="_Delete all Data" Click="DeleteAll_Click"/>
             </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Dark Mode"/>
+                <MenuItem Header="_Light Mode"/>
+            </MenuItem>
         </Menu>
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="Begin a new Task" Padding="10" FontSize="18" FontWeight="UltraLight"></TextBlock>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="Start" Content="Start" Padding="50 0 50 0" Margin="100 0 100 0" Click="Start_Click" FontSize="14" FontWeight="UltraLight" />
-                <Button x:Name="End" Content="End" Padding="50 10 50 10" Margin="100 0 100 0" Click="End_Click" FontSize="14" FontWeight="UltraLight"/>
+        <GroupBox Style="{StaticResource SubHeader}" Grid.Row="1" Header="Begin a new Task">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="Start" Template="{StaticResource StopwatchButton}" Style="{StaticResource TimerButtons}" Content="Start" Click="Start_Click" />
+                    <Button x:Name="End" Template="{StaticResource StopwatchButton}" Style="{StaticResource TimerButtons}" Content="End" Click="End_Click"/>
+                </StackPanel>
+                <TextBlock x:Name="Stopwatch" Text="00:00:00" Style="{StaticResource Stopwatch}"></TextBlock>
             </StackPanel>
-            <TextBlock x:Name="Stopwatch" Text="00:00:00" HorizontalAlignment="Center" FontSize="25" FontWeight="UltraLight" Padding="10"></TextBlock>
-        </StackPanel>
-        <StackPanel Grid.Row="2">
-            <TextBlock Text="Summary" Padding="10" FontSize="18" FontWeight="UltraLight"></TextBlock>
-            <DataGrid x:Name="LogDatagrid" Margin="50" Height="250" AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="1*"/>
-                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="1.5*"/>
-                    <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width=".5*"/>
-                    <DataGridTextColumn Header="Start Time" Binding="{Binding Start}" Width=".5*"/>
-                    <DataGridTextColumn Header="End Time" Binding="{Binding End}" Width=".5*"/>
-                    <DataGridTextColumn Header="Elapsed" Binding="{Binding Elapsed}" Width=".5*"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
+        </GroupBox>
+
+        <GroupBox Style="{StaticResource SubHeader}" Grid.Row="2" Header="Summary">
+            <StackPanel>
+                <DataGrid x:Name="LogDatagrid" Margin="50" Height="250" AutoGenerateColumns="False" FontSize="16">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="1*"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="1.5*"/>
+                        <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width=".5*"/>
+                        <DataGridTextColumn Header="Start Time" Binding="{Binding Start}" Width=".5*"/>
+                        <DataGridTextColumn Header="End Time" Binding="{Binding End}" Width=".5*"/>
+                        <DataGridTextColumn Header="Elapsed" Binding="{Binding Elapsed}" Width=".5*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </GroupBox>
+          
     </Grid>
 </Window>

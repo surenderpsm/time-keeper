@@ -6,6 +6,56 @@
     <Application.Resources>
         <ResourceDictionary>
             <BitmapImage x:Key="main" UriSource="\res\main.ico"/>
+
+            <Style x:Key="SubHeader" TargetType="GroupBox">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="ExtraLight"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+
+            <Style x:Key="TimerButtons" TargetType="Button">
+                <Setter Property="Margin" Value="100 0 100 0"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="UltraLight"/>
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="Width" Value="50"/>
+            </Style>
+
+            <Style x:Key="Stopwatch" TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="FontWeight" Value="UltraLight"/>
+            </Style>
+
+            <ControlTemplate x:Key="StopwatchButton" TargetType="Button">
+                <Grid>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="BackgroundElement"
+                                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                    To="{TemplateBinding Background}"
+                                                    Duration="0:0:0.3"/>
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="MouseOver">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="BackgroundElement"
+                                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                    To="Green"
+                                                    Duration="0:0:0.3"/>
+                                </Storyboard>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <Ellipse x:Name="BackgroundElement" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding Foreground}"/>
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </ControlTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
