@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:time_keeper"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <BitmapImage x:Key="main" UriSource="\res\main.ico"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
