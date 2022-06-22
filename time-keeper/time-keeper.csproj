@@ -10,6 +10,14 @@
 
   <ItemGroup>
     <None Remove="res\main.ico" />
+    <None Remove="res\play.png" />
+    <None Remove="res\start_icon.svg" />
+    <None Remove="res\stop.png" />
+    <None Remove="res\stop_icon.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="res\play.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +30,7 @@
 
   <ItemGroup>
     <Resource Include="res\main.ico" />
+    <Resource Include="res\stop.png" />
   </ItemGroup>
 
 </Project>

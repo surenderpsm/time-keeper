@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Icon="{StaticResource main}"
         Title="TimeKeeper"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        Background="#EEEEEE">
 
     <Grid x:Name="ParentGrid">
         <Grid.RowDefinitions>
@@ -40,8 +41,12 @@
         <GroupBox Style="{StaticResource SubHeader}" Grid.Row="1" Header="Begin a new Task">
             <StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="Start" Template="{StaticResource StopwatchButton}" Style="{StaticResource TimerButtons}" Content="Start" Click="Start_Click" />
-                    <Button x:Name="End" Template="{StaticResource StopwatchButton}" Style="{StaticResource TimerButtons}" Content="End" Click="End_Click"/>
+                    <Button x:Name="Start" Template="{StaticResource StopwatchButton}" Style="{StaticResource TimerButtons}" Click="Start_Click" Background="#218707">
+                        <Image Style="{StaticResource StopwatchControl}" Source="{StaticResource start}" ToolTip="Start"/>
+                    </Button>
+                    <Button x:Name="End" Template="{StaticResource StopwatchButton}" Style="{StaticResource TimerButtons}" Click="End_Click" IsEnabled="False" Background="#960D0D">
+                        <Image Style="{StaticResource StopwatchControl}" Source="{StaticResource stop}" ToolTip="Stop"/>
+                    </Button>
                 </StackPanel>
                 <TextBlock x:Name="Stopwatch" Text="00:00:00" Style="{StaticResource Stopwatch}"></TextBlock>
             </StackPanel>

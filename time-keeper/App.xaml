@@ -6,12 +6,17 @@
     <Application.Resources>
         <ResourceDictionary>
             <BitmapImage x:Key="main" UriSource="\res\main.ico"/>
+            <BitmapImage x:Key="start" UriSource="\res\play.png"/>
+            <BitmapImage x:Key="stop" UriSource="\res\stop.png"/>
 
+            
             <Style x:Key="SubHeader" TargetType="GroupBox">
                 <Setter Property="FontSize" Value="18"/>
                 <Setter Property="FontWeight" Value="ExtraLight"/>
                 <Setter Property="Margin" Value="10"/>
                 <Setter Property="Padding" Value="10"/>
+                <Setter Property="Background" Value="#EEEEEE"/>
+                <Setter Property="Foreground" Value="Black"/>
             </Style>
 
             <Style x:Key="TimerButtons" TargetType="Button">
@@ -19,9 +24,16 @@
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontWeight" Value="UltraLight"/>
                 <Setter Property="Height" Value="50"/>
-                <Setter Property="Width" Value="50"/>
+                <Setter Property="Width" Value="75"/>
             </Style>
-
+            <Style x:Key="StopwatchControl" TargetType="Image">
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="RenderOptions.BitmapScalingMode" Value="Fant"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="Height" Value="16"/>
+                <Setter Property="Width" Value="16"/>
+            </Style>
             <Style x:Key="Stopwatch" TargetType="TextBlock">
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="FontSize" Value="25"/>
@@ -30,30 +42,21 @@
             </Style>
 
             <ControlTemplate x:Key="StopwatchButton" TargetType="Button">
-                <Grid>
-                    <VisualStateManager.VisualStateGroups>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <Storyboard>
-                                    <ColorAnimation Storyboard.TargetName="BackgroundElement"
-                                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                                    To="{TemplateBinding Background}"
-                                                    Duration="0:0:0.3"/>
-                                </Storyboard>
-                            </VisualState>
-                            <VisualState x:Name="MouseOver">
-                                <Storyboard>
-                                    <ColorAnimation Storyboard.TargetName="BackgroundElement"
-                                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                                    To="Green"
-                                                    Duration="0:0:0.3"/>
-                                </Storyboard>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateManager.VisualStateGroups>
-                    <Ellipse x:Name="BackgroundElement" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding Foreground}"/>
+                <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}">
                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Grid>
+                </Border>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="false">
+                        <Setter Property="Opacity" TargetName="border" Value="0.95"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Opacity" TargetName="border" Value="0.6"/>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Opacity" TargetName="border" Value="1"/>
+                    </Trigger>
+                    
+                </ControlTemplate.Triggers>
             </ControlTemplate>
             
         </ResourceDictionary>
