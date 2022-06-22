@@ -9,14 +9,15 @@
             <BitmapImage x:Key="start" UriSource="\res\play.png"/>
             <BitmapImage x:Key="stop" UriSource="\res\stop.png"/>
 
-            
+
             <Style x:Key="SubHeader" TargetType="GroupBox">
-                <Setter Property="FontSize" Value="18"/>
                 <Setter Property="FontWeight" Value="ExtraLight"/>
-                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Margin" Value="20"/>
                 <Setter Property="Padding" Value="10"/>
+                <Setter Property="FontSize" Value="24"/>
                 <Setter Property="Background" Value="#EEEEEE"/>
-                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="BorderBrush" Value="#222222"/>
+                <Setter Property="BorderThickness" Value="0.75"/>
             </Style>
 
             <Style x:Key="TimerButtons" TargetType="Button">
@@ -36,9 +37,9 @@
             </Style>
             <Style x:Key="Stopwatch" TargetType="TextBlock">
                 <Setter Property="HorizontalAlignment" Value="Center"/>
-                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontSize" Value="30"/>
                 <Setter Property="Padding" Value="10"/>
-                <Setter Property="FontWeight" Value="UltraLight"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
             </Style>
 
             <ControlTemplate x:Key="StopwatchButton" TargetType="Button">
